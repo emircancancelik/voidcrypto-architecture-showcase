@@ -1,0 +1,16 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: risk-execution-ai-scaler
+  namespace: voidcrypto
+spec:
+  scaleTargetRef:
+    name: risk-execution-ai
+  minReplicaCount: 0 
+  maxReplicaCount: 5
+  triggers:
+  - type: rabbitmq
+    metadata:
+      queueName: execution_orders
+      queueLength: "1"
+      host: RabbitMQ_Connection_String_Placeholder
