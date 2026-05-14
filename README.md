@@ -41,17 +41,27 @@ The system operates via a distributed consensus among 7 specialized agents:
 
 ## Showcase Repository Structure
 
+## Showcase Repository Structure
+
 ```text
 voidcrypto-architecture-showcase/
+├── agents/
+│   ├── master_decision_agent.py
+│   ├── ml_price_action_agent.py
+│   ├── news_sentiment_agent.py
+│   ├── order_book_agent.py
+│   ├── risk_execution_agent.py
+│   ├── technical_analysis_agent.py
+│   └── whale_tracker_agent.py
 ├── core/
-│   ├── base_agent.py          # Abstract Base Class for all autonomous agents
-│   └── consensus_pipeline.py  # Abstraction of the multi-agent consensus flow
+│   ├── base_agent.py
+│   └── consensus_pipeline.py
 ├── infrastructure/
-│   ├── Dockerfile             # Multi-stage, slimmed build for Azure deployment
-│   └── keda-scaler.yaml       # KEDA RabbitMQ trigger configuration
+│   ├── Dockerfile
+│   └── keda-scaler.yaml
 ├── schemas/
-│   └── data_contracts.py      # Pydantic models (AgentSignal, ExecutionPayload)
+│   └── data_contracts.py
 ├── shared/
-│   ├── logging_factory.py     # JSON structured logging implementation
-│   └── settings_manager.py    # Type-safe environment variable management
+│   ├── logging_factory.py
+│   └── settings_manager.py
 └── README.md
